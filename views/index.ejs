@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+
+<div class="header">
+  <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">로그인</button>
+  <button class=signup-button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">회원가입</button>
+  <h2>코딩 할 팔자 세탁소</h2>
+</div>
+
+<!--  로그인 모달  -->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'"
+class="close" title="Close Modal">&times;</span>
+<!-- 로그인 폼 -->
+<form class="modal-content animate" action="/action_page.php">
+  <div class="container">
+    <label for="Id"><b>아이디</b></label>
+    <input type="text" placeholder="Enter Id" name="Id" required>
+
+    <label for="psw"><b>비밀번호</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit">로그인</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container">
+    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">취소</button>
+    <!-- <span class="psw" style="float: left; margin-top: 30px; margin-left: 30ox;"><a href="#">비밀번호 찾기</a></span> -->
+  </div>
+</form>
+</div>
+
+
+
+<!-- 회원 가입 모달 -->
+<div id="id02" class="signup-modal">
+  <span onclick="document.getElementById('id02').style.display='none'" class="signup-close" title="Close Modal">&times;</span>
+  <!-- 회원 가입 폼 -->
+  <form class="signup-modal-content">
+    <div class="signup-container">
+      <h1>회원가입</h1>
+      <hr>
+      <label for="id"><b>아이디</b></label>
+        <input type="text" placeholder="아이디를 입력하세요" id="inputNickname" required>
+
+      <label for="email"><b>이메일</b></label>
+        <input type="text" placeholder="이메일을 입력하세요" id="inputEmail" required>
+
+      <label for="psw"><b>비밀번호</b></label>
+      <input type="password" placeholder="비밀번호를 입력하세요" id="inputPassword1" required>
+
+      <label for="psw-repeat"><b>재확인 비밀번호</b></label>
+      <input type="password" placeholder="재확인 비밀번호를 입력하세요" id="inputPassword2" required>
+      
+      <!-- <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      </label> -->
+
+      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+      <div class="signup-clearfix">
+        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="signup-cancelbtn">취소</button>
+        <button type="button" class="signupbtn" onclick="sign_up()">회원가입</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<div class="row">
+  <div class="service" id="service-order">서비스 신청</div>
+  <div class="service" id="service-inquire">서비스 조회</div>
+</div>
+
+<div class="row">
+  <div class="service" id="review-write">리뷰 작성</div>
+  <div class="service" id="review-inquire">리뷰 조회</div>
+</div>
+
+
+<script src="http://code.jquery.com/jquery-latest.js">
+  // Get the modal
+  var modal = document.getElementById('id01');
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+  var signup_modal = document.getElementById('id02');
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == signup_modal) {
+    signup_modal.style.display = "none";
+  }
+}
+
+
+
+function sign_up(){
+
+  const nickname = $("#inputNickname").val();
+  const email = $("#inputEmail").val();
+  const password1 = $("#inputPassword1").val();
+  const password2 = $("#inputPassword2").val();
+
+  $.ajax({
+    type: "POST",
+    url: "/api/users",
+    data: {
+      nickname: nickname,
+      email: email,
+      password: password1,
+      confirmPassword: password2,
+    },
+    success: function (response) {
+      customAlert("회원가입을 축하드립니다!", function () {
+
+      });
+    },
+    error: function (error) {
+      customAlert(error.responseJSON.errorMessage);
+    },
+  });
+
+  function customAlert(text, confirmCallback) {
+      $("#alertText").text(text);
+      $("#alertModal").modal("show");
+      if (confirmCallback) {
+        $("#alertModal .btn-confirm").click(confirmCallback);
+      }
+    }
+  }
+  </script>
+</body>
+</html>
+
+

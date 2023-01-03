@@ -2,7 +2,7 @@
   "development": {
     "username": "codinghal8",
     "password": "!Codinghal8",
-    "database": "database_development",
+    "database": "codinghal8",
     "host": "gotiger.ipdisk.co.kr",
     "dialect": "mysql"
   },
@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
+    "username": "codinghal8",
+    "password": "!Codinghal8",
     "database": "database_production",
-    "host": "127.0.0.1",
+    "host": "gotiger.ipdisk.co.kr",
     "dialect": "mysql"
   }
 }
