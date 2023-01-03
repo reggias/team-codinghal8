@@ -104,8 +104,9 @@
               <option selected>세탁한 옷의 종류를 골라주세요</option>
               <option value="1">상의</option>
               <option value="2">하의</option>
-              <option value="3">겉옷</option>
+              <option value="3">아우터</option>
               <option value="4">신발</option>
+              <option value="5">이불</option>
             </select>
           </div>
         </div>
@@ -128,16 +129,20 @@
               class="form-control"
               type="file"
               id="formFileMultiple"
+              accept="image/*"
               multiple
             />
-          </div>
+            <img id="previewImg" width="200" alt="이미지 영역" />
+          </div> 
         </div>
         <div class="review-post__row">
           <button type="button" class="btn btn-gainsboro">취소</button>
-          <button type="button" class="btn btn-theme">작성완료</button>
+          <button type="button" id="review-post" class="btn btn-theme">작성완료</button>
         </div>
       </form>
     </main>
     <footer></footer>
+    <script src="review-api.js"></script>
   </body>
 </html>
+
