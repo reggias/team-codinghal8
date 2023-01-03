@@ -4,7 +4,8 @@
   "description": "희찬 : 부족하지만 열심히 해보겠습니다\r 하루 : 포기하지않겠습니다\r 빈 : 화이팅\r 학수 : 홧팅",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettify": "prettier --write *.js **/*.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "socket.io": "^4.5.4"
   },
   "devDependencies": {
+    "prettier": "^2.8.1",
     "sequelize-cli": "^6.5.2"
   }
 }
