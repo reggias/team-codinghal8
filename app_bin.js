@@ -16,7 +16,7 @@ app.use(express.static(__dirname + '/views')); // 정적파일 적용 css,js,ima
 
 /* views mapping */
 app.get('/', (req, res) => {
-  res.render('index.ejs');
+  res.render('service.ejs');
 });
 
 app.listen(port, () => {

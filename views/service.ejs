@@ -31,14 +31,42 @@
 
         <div class="driver-wrap">
             <div class="order-in-progress-title-wrap">
-                <p>진행 중인 신청내용</p>
+                <p>세탁 신청/진행 리스트</p>
             </div>
-            <div id="order-in-progress-content-container"></div>
-        
-            <div class="order-complete-title-wrap">
-                <p>완료된 신청내용</p>
-            </div>
-            <div id="data-container"></div>
+            <div class="table-responsive cart_info">
+				<table class="table table-condensed">
+					<thead>
+						<tr class="service-menu">
+							<td class="nickname">닉네임</td>
+							<td class="address">집 주소</td>
+							<td class="img">세탁물 사진</td>
+							<td class="memo">요청사항</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="service-nickname">
+								<p>르탄이</p>
+							</td>
+							<td class="service-address">
+								<p>서울특별시 강남구 테헤란로44길 8 12층</p>
+							</td>
+							<td class="service-img">
+								<img src="../views/img/img.png" class="imgsize">
+							</td>
+							<td class="service-memo">
+								<div class="cart_quantity_button">
+									<p>깨끗하게 자신있게</p>
+								</div>
+							</td>
+							<td class="service-state">
+								<button type="button" class="btn btn-warning">세탁진행/상태변경</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
         </div>
         
         <script defer src="./js/driver.js"></script>
