@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.user.hasMany(models.laundry, { foreignKey: "user_id" });
     }
   }
   user.init({

@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.laundry.belongsTo(models.user, { foreignKey: "user_id" });
+      models.laundry.belongsTo(models.store, { foreignKey: "store_id" });
+      models.laundry.hasOne(models.review, { foreignKey: "laundry_id" });
     }
   }
   laundry.init({
