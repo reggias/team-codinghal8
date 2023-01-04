@@ -10,16 +10,16 @@ module.exports = {
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
     // laundry 테이블에서 user테이블 id컬럼 fk
-    await queryInterface.addColumn("laundry", "user_id", {
+    await queryInterface.addColumn("laundries", "user_id", {
       allowNull: false,
       type: Sequelize.STRING(50)
     });
-    await queryInterface.addConstraint('laundry', {
+    await queryInterface.addConstraint('laundries', {
       fields: ['user_id'],
       type: 'foreign key',
       name: 'laundry_userid_fk',
       references: {
-        table: 'user',
+        table: 'users',
         field: 'id',
       },
       onDelete: 'cascade',
@@ -27,16 +27,16 @@ module.exports = {
     });
 
     // laundry 테이블에서 store테이블 id컬럼 fk 
-    await queryInterface.addColumn("laundry", "store_id", {
+    await queryInterface.addColumn("laundries", "store_id", {
       allowNull: false,
       type: Sequelize.STRING(50)
     });
-    await queryInterface.addConstraint('laundry', {
+    await queryInterface.addConstraint('laundries', {
       fields: ['store_id'],
       type: 'foreign key',
       name: 'laundry_storeid_fk',
       references: {
-        table: 'store',
+        table: 'stores',
         field: 'id',
       },
       onDelete: 'cascade',
@@ -44,16 +44,16 @@ module.exports = {
     });
 
     // review 테이블에서 laundry테이블 id컬럼 fk 
-    await queryInterface.addColumn("review", "laundry_id", {
+    await queryInterface.addColumn("reviews", "laundry_id", {
       allowNull: false,
       type: Sequelize.INTEGER
     });
-    await queryInterface.addConstraint('review', {
+    await queryInterface.addConstraint('reviews', {
       fields: ['laundry_id'],
       type: 'foreign key',
       name: 'review_laundryid_fk',
       references: {
-        table: 'laundry',
+        table: 'laundries',
         field: 'id',
       },
       onDelete: 'cascade',
