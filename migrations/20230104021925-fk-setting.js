@@ -28,7 +28,6 @@ module.exports = {
 
     // laundry 테이블에서 store테이블 id컬럼 fk 
     await queryInterface.addColumn("laundries", "store_id", {
-      allowNull: false,
       type: Sequelize.STRING(50)
     });
     await queryInterface.addConstraint('laundries', {
