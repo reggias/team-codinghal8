@@ -18,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
   store.init({
     id: {
       primaryKey: true,
+      type: DataTypes.INTEGER,
+    },
+    store_id: {
+      unique: true,
       type: DataTypes.STRING(50),
     },
     nickname: {

@@ -5,7 +5,13 @@ module.exports = {
     await queryInterface.createTable('stores', {
       id: {
         allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      store_id: {
+        allowNull: false,
+        unique: true,
         type: Sequelize.STRING(50)
       },
       nickname: {
