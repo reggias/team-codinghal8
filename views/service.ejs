@@ -25,13 +25,13 @@
         <title>코딩할팔자조</title>
     </head>
     <body>
-        <div class="service-apply">
+        <div class="service-list">
             <h1>손님들이 신청한 세탁물 조회(사업자)</h1>
         </div>
 
-        <div class="driver-wrap">
+        <div class="laundry-list-wrap">
             <div class="order-in-progress-title-wrap">
-                <p>세탁 신청/진행 리스트</p>
+                <p>세탁 신청 리스트</p>
             </div>
             <div class="table-responsive cart_info">
 				<table class="table table-condensed">
@@ -61,7 +61,47 @@
 								</div>
 							</td>
 							<td class="service-state">
-								<button type="button" class="btn btn-warning">세탁진행/상태변경</button>
+								<button type="button" class="btn btn-warning">세탁진행</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+        </div>
+
+        <div class="laundry-list-wrap">
+            <div class="order-in-progress-title-wrap">
+                <p>세탁 진행 리스트</p>
+            </div>
+            <div class="table-responsive cart_info">
+				<table class="table table-condensed">
+					<thead>
+						<tr class="service-menu">
+							<td class="nickname">닉네임</td>
+							<td class="address">집 주소</td>
+							<td class="img">세탁물 사진</td>
+							<td class="memo">요청사항</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody id="service-ap">
+						<tr>
+							<td class="service-nickname">
+								<p>르탄이</p>
+							</td>
+							<td class="service-address">
+								<p>서울특별시 강남구 테헤란로44길 8 12층</p>
+							</td>
+							<td class="service-img">
+								<img src="../views/img/img.png" class="imgsize">
+							</td>
+							<td class="service-memo">
+								<div class="cart_quantity_button">
+									<p>깨끗하게 자신있게</p>
+								</div>
+							</td>
+							<td class="service-state">
+								<button type="button" class="btn btn-warning">상태변경</button>
 							</td>
 						</tr>
 					</tbody>

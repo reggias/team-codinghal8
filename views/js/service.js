@@ -9,7 +9,7 @@ function get_laundry_list() {
     data: {},
     success: function (response) {
       // console.log(response["serviceList"]);
-      let rows = response["serviceList"];
+      let rows = response["service"];
       for (let i = 0; i < rows.length; i++) {
         let nickname = rows[i]['nickname'];
         let address = rows[i]['address'];
@@ -31,7 +31,7 @@ function get_laundry_list() {
                             </div>
                           </td>
                           <td class="service-state">
-                            <button type="button" class="btn btn-warning">세탁진행/상태변경</button>
+                            <button type="button" class="btn btn-warning">세탁진행</button>
                           </td>
                         </tr>`;
         $("#service-list").append(temp_html);
