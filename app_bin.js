@@ -19,6 +19,9 @@ app.get('/', (req, res) => {
   res.render('service.ejs');
 });
 
+/* routes */
+app.use("/api", require("./routes/service.routes.js"));
+
 app.listen(port, () => {
   console.log(`SERVER ON! http://localhost:${port}/`);
 });
