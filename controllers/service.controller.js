@@ -6,15 +6,17 @@ class ServiceController {
 
   getService = async (req, res, next) => {
     try {
-      const service = await this.serviceService.findAllPost();
+      const service = await this.serviceService.findAllService();
 
       
       res.status(200).json({ service });
     } catch (err) {
       // console.log(err);
-      res.status(400).json({ errorMessage: "게시글 조회에 실패하였습니다." });
+      res.status(400).json({ errorMessage: "세탁 신청 리스트 조회에 실패하였습니다." });
     }
-  }};
+  }
+  
+};
 
 // async (req, res, next) => {
 //     // 서비스 계층에 구현된 findAllPost 로직을 실행합니다.

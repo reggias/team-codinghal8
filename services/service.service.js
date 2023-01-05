@@ -5,27 +5,27 @@ const { QueryTypes } = require("sequelize");
 class ServiceService {
   serviceRepository = new ServiceRepository();
 
-  findAllPost = async () => {
+  findAllService = async () => {
     // 저장소(Repository)에게 데이터를 요청합니다.
-    const allPost = await this.serviceRepository.findAllPost();
-    console.log("allPost", allPost);
+    const allService = await this.serviceRepository.findAllService();
 
     // 호출한 Post들을 가장 최신 게시글 부터 정렬합니다.
-    allPost.sort((a, b) => {
+    allService.sort((a, b) => {
       return b.createdAt - a.createdAt;
     })
-      if (allPost.length === 0) {
+      if (allService.length === 0) {
         return res
           .status(404)
-          .json({ errorMessage: "게시글이 존재하지 않습니다." });
+          .json({ errorMessage: "신청 리스트가 존재하지 않습니다." });
       }
-      return allPost.map(post => {
+      return allService.map(service => {
         return {
-          id: post.id,
-          nickname: post.nickname,
-          address: post.address,
-          img: post.img,
-          memo: post.memo
+          id: service.id,
+          nickname: service.nickname,
+          address: service.address,
+          img: service.img,
+          memo: service.memo,
+          store_id: service.store_id
         }
       });
     }
