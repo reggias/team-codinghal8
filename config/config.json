@@ -4,7 +4,8 @@
     "password": "!Codinghal8",
     "database": "codinghal8",
     "host": "gotiger.ipdisk.co.kr",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "timezone": "+09:00"
   },
   "test": {
     "username": "root",

@@ -2,6 +2,16 @@
     box-sizing: border-box;
   }
   
+  .logout-button{
+    display: show;
+    width: 100px;
+    float: right;
+  }
+  .login-button{
+    margin-right: 15px;
+  }
+
+
   body {
     font-family: Arial, Helvetica, sans-serif;
   }
@@ -211,7 +221,7 @@ hr {
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
-  margin-right:12px;
+  margin-left:12px;
   border: none;
   cursor: pointer;
   width: 100%;

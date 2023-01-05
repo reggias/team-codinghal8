@@ -1,32 +1,27 @@
-const express = require("express");
-const router = express.Router();
+const express = require('express');
 const app = express();
+const port = 3000;
 
+// const router = require('./routes');
+
+/* router */
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('./views'));
+
+/* views */
+app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-app.set('views', './views');
+app.use(express.static(__dirname + '/views')); // 정적파일 적용 css,js,image
 
-const { Op } = require("sequelize");
-const jwt = require("jsonwebtoken");
-const authMiddleware = require("./middlewares/auth-middleware");
-const { Server } = require("http");
-const ejs = require('ejs');
+app.get('/', (req, res) => {
+  res.render('index.ejs');
+});
 
-const http = Server(app);
-
-const indexRouter = require('./routes')
-app.use(indexRouter)
+/* routes */
+app.use("/api", require("./routes/signup.route.js"));
+app.use("/api", require("./routes/login.route"));
 
 
-User.sequelize.sync()
-  .then(() => {
-    console.log("DB Connection Success!")
-  })
-  .catch(console.error);
-
-
-http.listen(8080, () => {
-    console.log("서버가 요청을 받을 준비가 됐어요");
-  });
-  
+app.listen(port, () => {
+  console.log("서버가 요청을 받을 준비가 됐어요");
+});

@@ -8,13 +8,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="css/index.css"/>
+<!--    JQuery-->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+<!--    JQuery Cookie-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 </head>
 <body>
 
 <div class="header">
-  <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">로그인</button>
-  <button class=signup-button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">회원가입</button>
+  <button id="signup" class=signup-button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">회원가입</button>
+  <button id="login" class=login-button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">로그인</button>
+
+  <button id="logout" class=logout-button onclick="logout()" style="display: none;">로그아웃</button>
+  <div style="text-align: center;">
   <h2>코딩 할 팔자 세탁소</h2>
+  </div>
 </div>
 
 <!--  로그인 모달  -->
@@ -22,15 +31,16 @@
   <span onclick="document.getElementById('id01').style.display='none'"
 class="close" title="Close Modal">&times;</span>
 <!-- 로그인 폼 -->
-<form class="modal-content animate" action="/action_page.php">
+<form class="modal-content animate">
   <div class="container">
     <label for="Id"><b>아이디</b></label>
-    <input type="text" placeholder="Enter Id" name="Id" required>
+    <input type="text" placeholder="Enter Id" name="Id" id="loginUserId" required>
 
     <label for="psw"><b>비밀번호</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" name="psw" id="loginPassword" required>
 
-    <button type="submit">로그인</button>
+    <button type="button" class="business-signupbtn" onclick="loginUser()">개인회원으로 로그인</button>
+    <button type="button"  class="common-signupbtn" onclick="loginBoss()">사장으로 로그인</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
@@ -53,28 +63,24 @@ class="close" title="Close Modal">&times;</span>
     <div class="signup-container">
       <h1>회원가입</h1>
       <hr>
-
       <label for="id"><b>아이디</b></label>
-        <input type="text" placeholder="아이디를 입력하세요" id="inputNickname" required>
-
-      <label for="email"><b>이메일</b></label>
-        <input type="text" placeholder="이메일을 입력하세요" id="inputEmail" required>
+      <input type="text" placeholder="아이디를 입력하세요" id="inputUserId" required>
+      
+      <label for="nickname"><b>닉네임</b></label>
+      <input type="text" placeholder="닉네임을 입력하세요" id="inputNickname" required>
 
       <label for="psw"><b>비밀번호</b></label>
-      <input type="password" placeholder="비밀번호를 입력하세요" id="inputPassword1" required>
+      <input type="text" placeholder="비밀번호를 입력하세요" id="inputPassword1" required>
 
-      <label for="psw-repeat"><b>재확인 비밀번호</b></label>
-      <input type="password" placeholder="재확인 비밀번호를 입력하세요" id="inputPassword2" required>
+      <label for="confirmPsw"><b>재확인 비밀번호</b></label>
+      <input type="text" placeholder="재확인 비밀번호를 입력하세요" id="inputPassword2" required>
       
-      <!-- <label>
-        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-      </label> -->
-
-      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+<!-- 
+      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p> -->
 
       <div class="signup-clearfix">
-        <button type="button" class="business-signupbtn">사업자로 가입하기</button> 
-        <button type="button" class="common-signupbtn" id="signup">개인으로 가입하기</button>
+        <button type="button" class="business-signupbtn" onclick="signup_business()">사업자로 가입하기</button> 
+        <button type="button" class="common-signupbtn" id="signup" onclick="signup_common()">개인으로 가입하기</button>
       </div>
     </div>
   </form>
@@ -91,6 +97,7 @@ class="close" title="Close Modal">&times;</span>
   <div class="service" id="review-inquire">리뷰 조회</div>
 </div>
 
+</hr>
 
 <script>
   // Get the modal
@@ -109,34 +116,9 @@ window.onclick = function(event) {
   }
 }
 
-
-function sign_up(){
-
-  const nickname = $("#inputNickname").val();
-  const email = $("#inputEmail").val();
-  const password1 = $("#inputPassword1").val();
-  const password2 = $("#inputPassword2").val();
-  console.log(nickname,email,password1,password2)
-
-  $.ajax({
-    type: "POST",
-    url: "/api/users",
-    data: {
-      nickname: nickname,
-      email: email,
-      password: password1,
-      confirmPassword: password2
-    },
-    success: function (response) {
-      alert('회원가입을 축하합니다.')
-    },
-    error: function (error) {
-      alert('회원가입에 실패하셨습니다.')
-    }
-  });
-  }
-
   </script>
+  <script defer src="./js/signup.js"></script>
+  <script defer src="./js/login.js"></script>
 </body>
 </html>
 

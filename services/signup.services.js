@@ -1,30 +1,39 @@
-const UserRepository = require('../repositories/users.repositorys');
+const UserRepository = require('../repositories/users.repository');
 
-class loginServices {
+class SignupService {
     userRepository = new UserRepository();
 
-    createUser = async (nickname, email, password, confirmPassword) => {
-        const { email, nickname, password, confirmPassword } = req.body;
-        if (password !== confirmPassword) {
-            res.status(400).send({
-                errorMessage: "패스워드가 패스워드 확인란과 다릅니다.",
-            });
-            return;
-        }
+    createUser = async (userType, email, phoneNumber, password, name, address, point) => {
+        const createUserData = await this.userRepository.createUser(userType, email, phoneNumber, password, name, address, point);
 
-        // email or nickname이 동일한게 이미 있는지 확인하기 위해 가져온다.
-        const existsUsers = await User.findAll({
-            where: {
-                [Op.or]: [{ email }, { nickname }],
-            },
+        return{
+            userId: createUserData.userId,
+            email : createUserData.email,
+            phoneNumber: createUserData.phoneNumber,
+            name: createUserData.name,
+            address: createUserData.address,
+            createdAt: createUserData.createdAt,
+            updatedAt: createUserData.updatedAt,
+        };
+    }
+
+    findAllUser = async(name) => {
+        const findUsesrData = await this.userRepository.findAllUser(name);
+        console.log("ser",name);
+        return findUsesrData.map(user => {
+            return {
+                userId: user.userId,
+                email : user.email,
+                phoneNumber: user.phoneNumber,
+                name: user.name,
+                address: user.address,
+                createdAt: user.createdAt,
+                updatedAt: user.updatedAt,
+            }
         });
-        if (existsUsers.length) {
-            res.status(400).send({
-                errorMessage: "이메일 또는 닉네임이 이미 사용중입니다.",
-            });
-            return;
-        }
+    }
 
-        await User.create({ email, nickname, password, confirmPassword });
-    };
 }
+
+
+module.exports = SignupService;
