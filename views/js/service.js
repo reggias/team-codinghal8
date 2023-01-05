@@ -13,10 +13,12 @@ function get_laundry_list() {
       for (let i = 0; i < rows.length; i++) {
         let id = rows[i]['id'];
         let store_id = rows[i]['store_id'];
+        let state = rows[i]['state'];
         let nickname = rows[i]['nickname'];
         let address = rows[i]['address'];
         let img = rows[i]['img'];
         let memo = rows[i]['memo'];
+        let phone = rows[i]['phone'];
         if (store_id == null) {
           let temp_html = `<tr>
                             <td class="service-nickname">
@@ -38,10 +40,13 @@ function get_laundry_list() {
                             </td>
                           </tr>`;
           $("#service-list").append(temp_html);
-        } else {
+        } else if ( state == "배송완료") {
           let temp_html = `<tr>
                             <td class="service-nickname">
                               <p>${nickname}</p>
+                            </td>
+                            <td class="service-phone">
+                              <p>${phone}</p>
                             </td>
                             <td class="service-address">
                               <p>${address}</p>
@@ -55,7 +60,32 @@ function get_laundry_list() {
                               </div>
                             </td>
                             <td class="service-state">
-                              <button type="button" class="btn btn-warning">상태변경</button>
+                              <p>${state}</p>
+                            </td>
+                          </tr>`;
+          $("#service-Complet").append(temp_html);
+        } else {
+          let temp_html = `<tr>
+                            <td class="service-nickname">
+                              <p>${nickname}</p>
+                            </td>
+                            <td class="service-phone">
+                              <p>${phone}</p>
+                            </td>
+                            <td class="service-address">
+                              <p>${address}</p>
+                            </td>
+                            <td class="service-img">
+                              <img src="../views/img/${img}" class="imgsize">
+                            </td>
+                            <td class="service-memo">
+                              <div class="cart_quantity_button">
+                                <p>${memo}</p>
+                              </div>
+                            </td>
+                            <td class="service-state">
+                              <p>${state}</p>
+                              <button type="button" class="btn btn-warning" onclick="state_update(${store_id}, ${id})">상태변경</button>
                             </td>
                           </tr>`;
           $("#service-apply").append(temp_html);
@@ -71,12 +101,20 @@ function put_laundry_apply(id) {
     url: `/api/laundry/${id}`,
     data: {},
     success: function (response) {
-      // console.log(response);
-      if (response == "message") {
-        alert(response["message"]);
-      } else {
-        alert(response["errorMessage"]);
-      }
+      // console.log(response["message"]);
+      alert(response["message"]);
+      window.location.reload();
+    }
+  })
+}
+
+function state_update(store_id, id) {
+  $.ajax({
+    type: "PUT",
+    url: `/api/state/${store_id}/${id}`,
+    data: {},
+    success: function (response) {
+      alert(response["message"]);
       window.location.reload();
     }
   })

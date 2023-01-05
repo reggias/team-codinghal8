@@ -25,7 +25,9 @@ class ServiceService {
           address: service.address,
           img: service.img,
           memo: service.memo,
-          store_id: service.store_id
+          store_id: service.store_id,
+          state: service.state,
+          phone: service.phone
         }
       });
     }
