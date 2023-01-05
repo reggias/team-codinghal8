@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
 /* routes */
 app.use("/api", require("./routes/signup.route.js"));
 app.use("/api", require("./routes/login.route"));
+app.use("/api", require("./routes/logout.route"));
 
 
 app.listen(port, () => {
