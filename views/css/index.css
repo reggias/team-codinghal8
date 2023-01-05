@@ -182,6 +182,7 @@ form {
 
 
 /*sign up css*/
+
 * {box-sizing: border-box}
 
 /* Full-width input fields */
@@ -220,15 +221,29 @@ hr {
 .signup-button:hover {
   opacity:1;
 }
+/* 
+.btn {
+  border: none;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
+ */
 
+/* .business {background-color: #2196F3;} 
+.business:hover {background: #0b7dda;}
+
+.common {background-color: #e7e7e7; color: black;}
+.common:hover {background: #ddd;}  */
 /* Extra styles for the cancel button */
-.signup-cancelbtn {
+.business-signupbtn {
   padding: 14px 20px;
-  background-color: #f44336;
+  background-color: #2196F3;
 }
 
 /* Float cancel and signup buttons and add an equal width */
-.signup-cancelbtn, .signupbtn {
+.business-signupbtn, .common-signupbtn {
   float: left;
   width: 50%;
 }
@@ -238,16 +253,11 @@ hr {
   padding: 16px;
 }
 
-/* Clear floats */
-.signup-clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
-}
+
 
 /* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 300px) {
-  .signup-cancelbtn, .signupbtn {
+  .business-signupbtn, .common-signupbtn {
     width: 100%;
   }
 }
@@ -285,14 +295,12 @@ button:hover {
   opacity:1;
 }
 
-/* Extra styles for the cancel button */
-.signup-cancelbtn {
+.business-signupbtn {
   padding: 14px 20px;
-  background-color: #f44336;
-}
+  background-color: #46d1a7;
+}  
 
-/* Float cancel and signup buttons and add an equal width */
-.signup-cancelbtn, .signupbtn {
+.business-signupbtn, .common-signupbtn {
   float: left;
   width: 50%;
 }
@@ -355,7 +363,7 @@ hr {
 
 /* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 300px) {
-  .signup-cancelbtn, .signupbtn {
+  .business-signupbtn, .common-signupbtn {
     width: 100%;
   }
 }

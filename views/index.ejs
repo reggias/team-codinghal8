@@ -53,6 +53,7 @@ class="close" title="Close Modal">&times;</span>
     <div class="signup-container">
       <h1>회원가입</h1>
       <hr>
+
       <label for="id"><b>아이디</b></label>
         <input type="text" placeholder="아이디를 입력하세요" id="inputNickname" required>
 
@@ -72,8 +73,8 @@ class="close" title="Close Modal">&times;</span>
       <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
       <div class="signup-clearfix">
-        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="signup-cancelbtn">취소</button>
-        <button type="button" class="signupbtn" id="signup">회원가입</button>
+        <button type="button" class="business-signupbtn">사업자로 가입하기</button> 
+        <button type="button" class="common-signupbtn" id="signup">개인으로 가입하기</button>
       </div>
     </div>
   </form>
@@ -92,7 +93,6 @@ class="close" title="Close Modal">&times;</span>
 
 
 <script>
-  window.addEventListener('DOMContentLoaded', (event) => {console.log('JS 파일 연결'); });
   // Get the modal
   var modal = document.getElementById('id01');
   // When the user clicks anywhere outside of the modal, close it
@@ -109,10 +109,6 @@ window.onclick = function(event) {
   }
 }
 
-
-
-const signup = document.querySelector('#signup')
-signup.addEventListener('click',sign_up)
 
 function sign_up(){
 
