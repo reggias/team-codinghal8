@@ -1,0 +1,110 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Stylish&display=swap');
+
+/* reset.css */
+@import url(reset.css);
+
+@import url(star-rating.css);
+
+* {
+    font-family: 'Jua', sans-serif;
+}
+
+header {
+    font-family: 'Jua', sans-serif;
+    padding: 30px;
+}
+
+#review-post__main {
+    display: flex;
+    font-family: 'Jua', sans-serif;
+    justify-content: center;
+    height: calc(100vh - 70px);
+    padding: 0px 100px;
+    margin: 0 auto;
+}
+
+#review-post__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    font-size: 30px;
+    background-color: #0ecd9a;
+}
+
+footer {
+    height: 0px;
+    background-color: gainsboro;
+}
+
+#review-post__form {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    width: 600px;
+    height: calc(100vh - 70px);
+    overflow-y: scroll;
+    background-color: azure;
+}
+
+#review-post__form::-webkit-scrollbar {
+    width: 0px;
+}
+
+.review-post__row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 30px;
+}
+
+.review-post__row:nth-child(6) {
+    margin-top: 10px;
+}
+
+.review-post__row:last-child {
+    display: flex;
+    justify-content: space-between;
+}
+
+#review-post__categories,
+.form-floating,
+.mb-3 {
+    width: 100%;
+}
+
+#review-post__customer-nickname {
+    padding: 10px 20px;
+    font-size: 30px;
+}
+
+#review-post__store {
+    padding: 10px 20px;
+    font-size: 30px;
+}
+
+#floatingTextarea2 {
+    height: 200px;
+    overflow-y: scroll;
+}
+
+#floatingTextarea2::-webkit-scrollbar {
+    width: 0px;
+}
+
+.btn-gainsboro {
+    background-color: gainsboro;
+}
+
+.btn-gainsboro:hover {
+    background-color: silver;
+}
+
+.btn-theme {
+    background-color: #26f1bb;
+}
+
+.btn-theme:hover {
+    background-color: #03b586;
+}
