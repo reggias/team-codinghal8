@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const { user, store } = require("../models");
 const authMiddleware = require("../middlewares/auth-middleware");
 const { raw } = require("body-parser");
+const session = require('express-session');
 
 var cookieParser = require('cookie-parser')
 
@@ -31,10 +32,17 @@ router.post("/login/common", async (req, res) => {
       }
       
       const token = jwt.sign({ user_id: User.user_id }, "customized-secret-key");
-      res.cookie('token', token );
-      console.log('token:',token)
-      console.log('req.cookies:',req.cookies)
-    
+
+      app.use(session({
+        key: 'token',
+        secret: 'secret',
+        resave: false,
+        saveUninitialized: true,
+        cookie: {
+          maxAge: 24000 * 60 * 60 
+        }
+      }));
+
       res.send({
         token,
       });
@@ -45,11 +53,6 @@ router.post("/login/common", async (req, res) => {
       errorMessage: '로그인에 실패하였습니다.',
       });
     }
-
-
-
-
-
 });
 
 //사업자 로그인 API
@@ -69,6 +72,10 @@ router.post("/login/business", async (req, res) => {
   }
   
   const token = jwt.sign({ store_id: Store.store_id }, "customized-secret-key");
+  res.cookie('token', token );
+  console.log('token:',token)
+  console.log('req.cookies:',req.cookies)
+
   res.send({
     token,
   });
