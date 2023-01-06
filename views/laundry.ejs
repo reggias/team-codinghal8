@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>세탁물 조회</title>
+<link rel="stylesheet" href="/css/laundry.css" />
+</head>
+<body>
+<header>
+  <h2><내가 신청한 세탁물 현황 조회></h2>
+</header>
+
+<section>
+  <nav>
+    <table>
+      <thead>
+        <tr>
+          <th>세탁물</th>
+          <th>세탁 상태</th>
+          <th>사장님</th>
+        </tr>
+      </thead>
+      <tbody">
+          <tr>
+                <%if (laundry_category === 1){%>
+                    <th>상의</th>
+                <%}else if (laundry_category ===2){%>
+                    <th>하의</th>
+                <%}else {%>
+                    <th>이불</th>
+                <%}%>
+
+                <%if (laundry_state === 1){%>
+                    <th>대기 중</th>
+                <%}else if (laundry_state ===2){%>
+                    <th>수거 중</th>
+                <%}else if (laundry_state ===3){%>
+                    <th>수거 완료</th>
+                <%}else if (laundry_state ===4){%>
+                    <th>배송 중</th>
+                <%}else if (laundry_state ===5){%>
+                    <th><a href="/api/${userId}/review" id="posting_review" style="color:black; text-decoration-line: none">배송 완료(평점 및 리뷰작성하기)</a></th>
+                <%}else {%>
+                    <th>리뷰 작성 완료</th>
+                <%}%>
+            <th><%= store_nickname %></th>
+          </tr>
+      </tbody>
+    </table>
+  </nav>
+  
+  <article>
+    <h1>서비스상태설명</h1>
+    <br>대기중</br>
+    <p>- 수거가 결정되지않음</p>
+    <p>수거중</p>
+    <p>- 수거를 하러 가는 상황</p>
+    <p>수거완료</p>
+    <p>- 수거를 완료한 상황</p>
+    <p>배송중</p>
+    <p>- 세탁을 완료하고 배송 중인 상황</p>
+    <p>배송완료</p>
+    <p>- 집 앞으로 세탁물을 배송 완료한 상황</p>
+  </article>
+</section>
+
+<footer>
+  <button type="button"><a href="/" id="next" style="color:black; text-decoration-line: none">뒤로가기</a></button>
+</footer>
+<script src="/js/laundry.js"></script>
+</body>
+</html>

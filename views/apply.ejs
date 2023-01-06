@@ -21,101 +21,48 @@
       crossorigin="anonymous"
     ></script> 
     <title>세탁 서비스 신청 페이지</title>
-    <link rel="stylesheet" href="../static/styles.css" />
-    
-    <style>
-    	* {
-          box-sizing: border-box;
-        }
-    	header {
-        	display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100vw;
-            padding: 20px;
-            background-color: white;
-            border-bottom: 2px solid #000000;
-        }
-        .header_column {
-            display: flex;
-            align-items: center;
-        }
-        .header_column > h1 {
-            font-size: 30px;
-        }
-        #apply_title {
-            width: 50px;
-            height: 50px;
-            background-position: center;
-            background-size: cover;
-        }
-        nav {
-            float: left;
-        	display: flex;
-            align-items: center;
-        	width: 50%;
-            height: 500px;
-            padding-left: 170px;
-        }
-        article {
-            padding: 100px;
-            display: flex;
-            align-items: center;
-        	width: 50%;
-            height: 500px;
-        }
-        .price_informaion {
-          	margin: 20px;
-            padding: 20px;
-            border: 20px solid #000000;
-            width: 300px;
-        }
-        .price_informaion > h3 {
-        	box-sizing: border-box;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        td, th {
-        	width: 300px;
-            height: 200px;
-            border: 2px solid #000000;
-            padding-left: 15px;
-        }
-    </style>
+
+    <!--css-->
+    <link rel="stylesheet" href="/css/apply.css" />
+
   </head>
 <body>
-    <header>
-        <div class="header_column">
-            <div id="apply_title"></div>
-            <h1>세탁신청 페이지</h1>
-        </div>
-        <div class="header_column">
-        	<label for="fname">현재 나의 잔여포인트 :</label>
-          	<input type="text" name="rest_point" disabled/>
-        </div>
-  	</header>
+  <header>
+    <div class="header_column">
+      <div id="apply_title"></div>
+      <h1>세탁신청 페이지</h1>
+    </div>
+    <div class="header_column">
+      <p>현재 나의 잔여포인트 : <%= my_rest_point %></p>
+    </div>
+  </header>
 	<section>
-    	<nav>
-            <div id="apply_input">
-                <form action="/action_page.php">
-                  <label for="fname">필수정보입력</label><br><br>
-                  <input type="text" name="fname" value="닉네임"><br><br>
-                  <input type="text" name="lname" value="전화번호"><br><br>
-                  <input type="text" name="fname" value="손님 집주소"><br><br>
-                  <input type="text" name="lname" value="손님 세탁물 사진"><br><br>
-                  <input type="text" name="fname" value="세탁물"><br><br>
-                  <input type="text" name="lname" value="세탁 요청사항">
-                  <input type="submit" value="신청하기">
-                </form>
-            </div>
-    	</nav>
+    <nav>
+      <div>
+        <form enctype="multipart/form-data">
+          <label id="apply_label" for="fname">필수정보입력</label><br><br>
+          <div><%= customer_nickname %></div><br>
+          <td>휴대전화</td>
+          <input type="text" name="phone"><br><br>
+          <td>주소</td>
+          <input type="text" name="address"><br><br>
+          <td>이미지</td>
+          <input id="applyImage" type="file"><br><br>
+          <td>세탁물</td>
+          <input type="text" name="category"><br><br>
+          <td>세탁 요청사항</td>
+          <input type="text" name="memo">
+          <button id="applybutton" onclick="applybutton" type="button">신청하기</button>
+          <button type="button"><a href="/" id="next" style="color:black; text-decoration-line: none">뒤로가기</a></button>
+        </form>
+      </div>
+    </nav>
         <article>
             <div id="price_informaion">
             	  <h3>세탁 1회에 10,000p</h3>
             </div>
         </article>
     </section>
+    <script src="/js/apply.js"></script>
 </body>
 </html>
