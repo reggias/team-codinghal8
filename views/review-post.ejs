@@ -33,14 +33,14 @@
     <link rel="stylesheet" href="/css/review-post.css" />
   </head>
   <body>
-    <header id="review-post__header">
-      <div class="review-post__header__column">
-        <a href="#"><i class="fa-solid fa-chevron-left"></i></a>
+    <header id="review__header">
+      <div class="review__header__column">
+        <i id="btn-back" class="fa-solid fa-chevron-left"></i>
       </div>
-      <div class="review-post__header__column"><h1>리뷰 작성하기</h1></div>
-      <div class="review-post__header__column"></div>
+      <div class="review__header__column"><h1>리뷰 작성하기</h1></div>
+      <div class="review__header__column"></div>
     </header>
-    <main id="review-post__main">
+    <main id="review__main">
       <form
         name="review-post__form"
         id="review-post__form"
@@ -131,8 +131,10 @@
               id="reviewLaundryImage"
               accept="image/*"
             />
+            <div id="previewImg-box">
             <img id="previewImg" max-height="100" width="100" alt="이미지 영역" />
             <button type="button" id="deleteImg">이미지 삭제</button>
+          </div>
           </div> 
         </div>
         <div class="review-post__row">
@@ -142,7 +144,7 @@
       </form>
     </main>
     <footer></footer>
-    <script src="/js/review-api.js"></script>
+    <script src="/js/review-post-api.js"></script>
   </body>
 </html>
 

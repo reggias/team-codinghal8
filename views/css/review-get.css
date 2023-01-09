@@ -1,0 +1,129 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Stylish&display=swap');
+
+/* reset.css */
+@import url(reset.css);
+
+/* header, main */
+@import url(review-header.css);
+
+* {
+    font-family: 'Jua', sans-serif;
+}
+
+#review__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+#review__main::-webkit-scrollbar {
+    width: 0;
+}
+
+.review-get__row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 30px;
+}
+
+.review-get__row:first-child {
+    margin-top: 15px;
+}
+
+.review-get__row:last-child {
+    display: flex;
+    justify-content: space-between;
+}
+
+#review-get__customer-nickname {
+    padding: 10px 20px;
+    font-size: 30px;
+}
+
+#review-get__info-text {
+    font-size: 20px;
+}
+
+.btn-gainsboro {
+    background-color: gainsboro;
+}
+
+.btn-gainsboro:hover {
+    background-color: silver;
+}
+
+.btn-theme {
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #26f1bb;
+}
+
+.btn-theme:hover {
+    background-color: #03b586;
+}
+
+#reviews-list {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    width: 700px;
+    height: calc(100vh - 70px);
+    overflow-y: scroll;
+    background-color: #8cb7ab;
+    padding: 50px;
+    margin-top: 20px;
+    border-radius: 30px;
+}
+
+#reviews-list::-webkit-scrollbar {
+    width: 0px;
+}
+
+#reviews-list > li {
+    padding: 30px;
+    border: 2px solid rgb(202, 249, 249);
+    border-radius: 30px;
+    background-color: rgb(202, 249, 249);
+    margin-bottom: 50px;
+}
+
+.review-get__list-row {
+    display: flex;
+    padding: 10px;
+}
+
+.review-get__list-row:first-child {
+    display: flex;
+    justify-content: space-between;
+}
+
+.review-get__list-row:last-child {
+    margin-top: 10px;
+}
+
+.review-get__column {
+    display: flex;
+}
+
+.text-box {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    margin-right: 20px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.review-get__content {
+    width: 100%;
+    min-height: 100px;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.review-get__content::-webkit-scrollbar {
+    width: 0;
+}

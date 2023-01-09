@@ -1,0 +1,38 @@
+header {
+    font-family: 'Jua', sans-serif;
+    padding: 30px;
+}
+
+#review__main {
+    display: flex;
+    font-family: 'Jua', sans-serif;
+    justify-content: center;
+    height: calc(100vh - 70px);
+    padding: 0px 100px;
+    margin: 0 auto;
+}
+
+#review__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    font-size: 30px;
+    background-color: #0ecd9a;
+}
+
+#btn-back {
+    padding: 8px 12px;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+}
+
+#btn-back:hover {
+    background-color: #a5ffe7;
+    cursor: pointer;
+}
+
+footer {
+    height: 0px;
+    background-color: gainsboro;
+}

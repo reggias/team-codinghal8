@@ -4,38 +4,14 @@
 /* reset.css */
 @import url(reset.css);
 
+/* star-rating */
 @import url(star-rating.css);
+
+/* header, main */
+@import url(review-header.css);
 
 * {
     font-family: 'Jua', sans-serif;
-}
-
-header {
-    font-family: 'Jua', sans-serif;
-    padding: 30px;
-}
-
-#review-post__main {
-    display: flex;
-    font-family: 'Jua', sans-serif;
-    justify-content: center;
-    height: calc(100vh - 70px);
-    padding: 0px 100px;
-    margin: 0 auto;
-}
-
-#review-post__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px;
-    font-size: 30px;
-    background-color: #0ecd9a;
-}
-
-footer {
-    height: 0px;
-    background-color: gainsboro;
 }
 
 #review-post__form {
@@ -57,6 +33,9 @@ footer {
     align-items: center;
     justify-content: center;
     padding: 10px 30px;
+}
+.review-post__row:first-child {
+    margin-top: 50px;
 }
 
 .review-post__row:nth-child(6) {
@@ -108,3 +87,5 @@ footer {
 .btn-theme:hover {
     background-color: #03b586;
 }
+
+previewImg-box
